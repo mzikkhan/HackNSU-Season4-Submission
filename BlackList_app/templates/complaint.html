@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Complain</title>
+    <link rel="stylesheet" href="{% static 'complaint.css' %}">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="logo"><a href="#">Black<span>List</span></a></div>
+        <ul class="menu">
+          <li><a href="{% url 'BlackList_app:menu_student' %}">Home</a></li>
+          <li><a href="{% url 'BlackList_app:profile' %}">Profile</a></li>
+          <li><a href="{% url 'BlackList_app:complaint' %}">Report</a></li>
+          <li><a href="{% url 'BlackList_app:homepage' %}">Sign out</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div class="form-content">
+        <div class="container">
+          <div class="title">Report</div>
+          <div class="content">
+            <form method="POST" action="complaint">
+              {% csrf_token %}
+              <div class="user-details">
+
+                <div class="input-box">
+                  <span class="details">Student ID</span>
+                  <input type="text" class="" name="studentId" required placeholder="Enter Bully's Student ID">
+                  <br>
+                </div>
+
+                <div class="file_upload_container">
+                  <span class="details">Evidence: </span>
+                  <input type="file" name="file" class="upload-box"/>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Description</span>
+                  <input type="text" placeholder="Enter the description of bullying" required name="description">
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Links</span>
+                  <input type="text" placeholder="Enter Links" required name="links">
+                </div>
+
+              </div>
+              <div class="gender-details">
+                <input type="radio" name="anonymous" id="dot-1">
+                <input type="radio" name="not-anonymous" id="dot-2">
+                <div class="category">
+                  <label for="dot-1">
+                  <span class="dot one"></span>
+                  <span class="anonymous">Anonymous</span>
+                </label>
+                <label for="dot-2">
+                  <span class="dot two"></span>
+                  <span class="not-anonymous">Not Anonymous</span>
+                </label>
+                </div>
+              </div>
+              <div class="button">
+                <input type="submit" value="Report">
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

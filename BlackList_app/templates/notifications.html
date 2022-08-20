@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="{% static 'notifications.css' %}">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="logo"><a href="#">Black<span>List</span></a></div>
+        <ul class="menu">
+          <li><a href="{% url 'BlackList_app:menu_student' %}">Home</a></li>
+          <li><a href="{% url 'BlackList_app:profile' %}">Profile</a></li>
+          <li><a href="{% url 'BlackList_app:complaint' %}">Report</a></li>
+          <li><a href="{% url 'BlackList_app:homepage' %}">Sign out</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </body>
+</html>

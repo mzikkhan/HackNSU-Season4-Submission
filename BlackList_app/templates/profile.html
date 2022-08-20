@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="{% static 'profile_page.css' %}">
+
+    <script src="https://kit.fontawesome.com/f6a195ab53.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="logo"><a href="#">Black<span>List</span></a></div>
+        <ul class="menu">
+          <li><a href="{% url 'BlackList_app:menu_student' %}">Home</a></li>
+          <li><a href="{% url 'BlackList_app:profile' %}">Profile</a></li>
+          <!-- <li><a href="{% url 'BlackList_app:notifications' %}">Notifications</a></li> -->
+          <li><a href="{% url 'BlackList_app:homepage' %}">Sign Out</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="profile-header">
+        <div class="profile-img">
+          <img src="{{ userpic }}" width="200" alt="">
+        </div>
+
+        <div class="profile-nav-info">
+          <h3 class="user-name">{{ name }}</h3>
+          <div class="address">
+            <p class="state">Dhaka</p>
+            <span class="country">Bangladesh</span>
+          </div>
+        </div>
+        <div class="profile-option">
+          <div class="notification">
+            <i class="fa fa-bell"></i>
+            <span class="alert-message">1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-body">
+        <div class="left-side">
+          <div class="profile-side">
+            <p class="school"><i class="fa-solid fa-school"></i>Mastermind</p>
+            <p class="university"><i class="fa-solid fa-building-columns"></i>North South University</p>
+            <p class="user-mail"><i class="fa fa-envelope"></i>{{ email }}</p><br>
+            <div class="profile-btn">
+              <!-- <button class="chatbtn"><i class="fa fa-comment"></i>Chat</button> -->
+              <button class="editbtn"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-side">
+          <div class="nav">
+            <ul>
+              <li><i class="fa-solid fa-triangle-exclamation"></i>Complaints</li>
+            </ul>
+          </div>
+
+          <div class="profile-body">
+            <div class="profile-complains">
+              <div class="card">
+                <div class="box">
+                  <!-- <div class="text">Complaints</div> -->
+                  <p>
+                    <ol>
+                      {% for complain in complain %}
+                        <li>{{ complain }}</li>
+                      {% empty %}
+                        <li>No complaints have been registered yet.</li>
+                      {% endfor %}
+                    </ol>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- <div class="profile-body">
+            <div class="profile-complains">
+              <div class="card">
+                <div class="box">
+                  <div class="text">Anonymous</div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna a</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div> -->
+
+        </div>
+
+          <!-- <div class="profile-body">
+            <div class="profile-complains">
+              <div class="card">
+                <div class="box">
+                  <div class="text">Anonymous</div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna a</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div> -->
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- <script src="{% static 'profile_page.css' %}"></script> -->
+  </body>
+</html>
